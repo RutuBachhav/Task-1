@@ -1,16 +1,10 @@
 const mongoose = require('mongoose');
 
 const connectDB = async() => {
-    try {
-        await mongoose.connect(process.env.MONGO_URI, {
-            useNewUrlParser: true,
-            //useUnifiedTopology: true,
-        });
-        console.log('MongoDB Connected...');
-    } catch (err) {
-        console.error(err.message);
-        process.exit(1);
-    }
+    mongoose.connect('mongodb+srv://rutubachhav1:Rutuja%40123@cluster0.uxowo.mongodb.net/Shop?retryWrites=true&w=majority')
+    .then(() => console.log('Connected to MongoDB'))
+    .catch((error) => console.error('Could not connect to MongoDB:', error));
+
 };
 
 module.exports = connectDB;
